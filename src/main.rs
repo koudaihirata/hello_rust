@@ -1,7 +1,10 @@
 fn main() {
-    println!("Hello, world!");
-    print!("Hello,");
-    print!("Rust!");
+    let a: i32 =1;
 
-    println!("Hello, {}", "students");
+    println!("{}", a);
+
+    let mut b: i32 = 2;
+    b = 2;
+
+    let c: i32 = 1;
 }
