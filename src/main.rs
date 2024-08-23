@@ -1,17 +1,21 @@
-use std::rc::Rc;
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+}
 
 fn main() {
-    let x = Box::new(1);
-    println!("x: {:p}", x);
-    println!("x + 2 = {}", *x + 2);
+    let mut rectangle: Rectangle = Rectangle {
+        width: 10,
+        height: 5,
+    };
+    println!("width: {}", rectangle.width);
+    println!("height: {}", rectangle.height);
 
-    let a = Rc::new("Hello".to_string());
-    println!("count1: {}", Rc::strong_count(&a));
-    {
-        let b = Rc::clone(&a);
-        println!("a: {:p}", a);
-        println!("b: {:p}", b);
-        println!("count2: {}", Rc::strong_count(&a));
-    }
-    println!("count3: {}", Rc::strong_count(&a));
+    println!("area: {}", rectangle.area());
 }
