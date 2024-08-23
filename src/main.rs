@@ -1,13 +1,20 @@
 fn main() {
-    let l1 = [1, 2, 3];
-    let l2 = [0; 1000];
+    let v1 = vec![1,2,3];
+    let v2 = vec![0;1000];
 
-    println!("{:?}", l1);
+    let mut v3 = Vec::new();
+    v3.push(1);
+    v3.push(4);
+    v3.push(9);
+    println!("{:?}", v3);
 
-    let i: i32 = l1[0];
+    let x = v3.pop();
+    println!("{:?}", x);
+    println!("{:?}", v3);
 
-    let [x, y, z] = l1;
+    let y = v3[1];
+    let z = v3.get(100);
+    println!("{:?}", z);
 
-    let l3: &[i32] = &l1[..];
-    println!("{:?}", l3);
+    let s = &v3[0..2];
 }
