@@ -1,22 +1,22 @@
-struct Rectangle {
-    width: u32,
-    height: u32,
-}
-
-impl Rectangle {
-    fn area(&self) -> u32 {
-        self.width * self.height
-    }
-
-    fn new(width: u32, height: u32) -> Self {
-        Rectangle {width, height}
-    }
+enum Shape {
+    Circle,
+    Square(u32),
+    Triangle{base: u32, heght: u32},
 }
 
 fn main() {
-    let mut rectangle: Rectangle = Rectangle::new(10, 10);
-    println!("width: {}", rectangle.width);
-    println!("height: {}", rectangle.height);
+    let c = Shape::Circle;
+    let s = Shape::Square((1));
+    let t = Shape::Triangle { base: (10), heght: (5) };
 
-    println!("area: {}", rectangle.area());
+    c.sample_method();
+    s.sample_method();
+    t.sample_method();
+}
+
+impl Shape {
+    fn sample_method(&self) {
+        println!("call sample_method");
+        // Some processes
+    }
 }
