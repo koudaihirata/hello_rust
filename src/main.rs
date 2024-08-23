@@ -1,18 +1,17 @@
+fn say_hello() {
+    println!("Hello");
+}
+
+fn add(a: i32,b: i32) -> i32 {
+    a + b
+}
+
 fn main() {
-    // 文字列
-    let c1 = 'a';
-    let c2 = '@';
-    let c3 = '😄';
+    say_hello();
+    println!("{}", add(1, 2));
 
-    // 文字配列
-    let s1 = "Rust";
-
-    let s2 = String::from("Python");
-    let s3 = "Java".to_string();
-
-    let mut s4 = String::from("Hello");
-    s4.push_str(", Rust");
-    println!("{}", s4);
-
-    let s5 = format!("{}{}", s1, s2);
+    let c = add(3, 4);
+    // println!("{}", c);
+    let d = say_hello();
+    // println!("{:?}", d);
 }
