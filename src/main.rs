@@ -1,22 +1,22 @@
-enum Shape {
-    Circle,
-    Square(u32),
-    Triangle{base: u32, heght: u32},
-}
-
 fn main() {
-    let c = Shape::Circle;
-    let s = Shape::Square((1));
-    let t = Shape::Triangle { base: (10), heght: (5) };
+    // enum Option<T> {
+    //     None,
+    //     Some(T),
+    // }
 
-    c.sample_method();
-    s.sample_method();
-    t.sample_method();
-}
+    let a = Some(1);
+    let b = Some("str");
+    let c: Option<i32> = None;
 
-impl Shape {
-    fn sample_method(&self) {
-        println!("call sample_method");
-        // Some processes
+    let v = vec![1, 2, 3];
+    let val = v.get(2);
+
+    match val {
+        Some(x) => println!("value exists: {}",x),
+        None => println!("value is None"),
+    }
+
+    if let Some(x) = val {
+        println!("val={}", x);
     }
 }
