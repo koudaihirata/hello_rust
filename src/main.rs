@@ -1,20 +1,18 @@
 fn main() {
-    let v1 = vec![1,2,3];
-    let v2 = vec![0;1000];
+    // 文字列
+    let c1 = 'a';
+    let c2 = '@';
+    let c3 = '😄';
 
-    let mut v3 = Vec::new();
-    v3.push(1);
-    v3.push(4);
-    v3.push(9);
-    println!("{:?}", v3);
+    // 文字配列
+    let s1 = "Rust";
 
-    let x = v3.pop();
-    println!("{:?}", x);
-    println!("{:?}", v3);
+    let s2 = String::from("Python");
+    let s3 = "Java".to_string();
 
-    let y = v3[1];
-    let z = v3.get(100);
-    println!("{:?}", z);
+    let mut s4 = String::from("Hello");
+    s4.push_str(", Rust");
+    println!("{}", s4);
 
-    let s = &v3[0..2];
+    let s5 = format!("{}{}", s1, s2);
 }
