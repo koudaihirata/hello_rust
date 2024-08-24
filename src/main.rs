@@ -1,23 +1,30 @@
-fn main() {
-    // enum Option<T> {
-    //     None,
-    //     Some(T),
-    // }
-
-    // let a = Some(1);
-    // let b = Some("str");
-    // let c: Option<i32> = None;
-
-    let v = vec![1, 2, 3];
-    let val = v.get(0);
-
-    match val {
-        Some(x) if *x == 1 => println!("value is 1"),
-        Some(x) => println!("value exists: {}",x),
-        None => println!("value is None"),
+mod test_module {
+    pub mod test_module1 {
+        pub fn test_fn1() {
+            println!("Hello World1");
+        }
+        fn test_fn2() {
+            println!("Hello Rust1");
+        }
     }
 
-    // if let Some(x) = val {
-    //     println!("val={}", x);
-    // }
+    mod test_module2 {
+        pub fn test_fn1() {
+            println!("Hello World2");
+        }
+        fn test_fn2() {
+            println!("Hello Rust2");
+        }
+    }
+
+}
+
+use test_module::test_module1::test_fn1;
+
+use crate::test_module::test_module1;
+fn main() {
+    crate::test_module::test_module1::test_fn1();
+    // crate::test_module::test_module2::test_fn1(); 上でpubを指定していないからエラーが出る
+
+    test_fn1();
 }
