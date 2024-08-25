@@ -1,10 +1,18 @@
-mod test_module;
+use hello_rust::sample_trait::{Shape, Rectangle, Circle};
 
-use test_module::*;
 fn main() {
-    crate::test_module::test_module1::test_fn1();
-    crate::test_module::test_module2::test_fn1();
+    let rect = Rectangle {
+        width: 4.0,
+        height: 5.0,
+    };
+    let circle = Circle {
+        radius: 2.0,
+    };
 
-    test_module1::test_fn1();
-    test_module2::test_fn1();
+    println!("Rectangle area is: {}", rect.calc_area());
+    println!("Rectangle perimeter is: {}", rect.calc_perimeter());
+    Rectangle::do_something();
+    println!("circle area is: {}", circle.calc_area());
+    println!("circle perimeter is: {}", circle.calc_perimeter());
+    Circle::do_something();
 }
