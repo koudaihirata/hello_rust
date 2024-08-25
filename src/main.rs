@@ -1,4 +1,4 @@
-use hello_rust::sample_trait::{Shape, Rectangle, Circle};
+use hello_rust::sample_trait::{double_area, Circle, Rectangle, Shape};
 
 fn main() {
     let rect = Rectangle {
@@ -16,6 +16,9 @@ fn main() {
     // println!("circle perimeter is: {}", circle.calc_perimeter());
     // Circle::do_something();
 
-    println!("Rectangle default: {}", rect.default_something());
-    println!("Circle default: {}", circle.default_something());
+    // println!("Rectangle default: {}", rect.default_something());
+    // println!("Circle default: {}", circle.default_something());
+
+    println!("Rectangle double area: {}", double_area(&rect));
+    println!("Circle double area: {}", double_area(&circle));
 }
