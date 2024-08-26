@@ -1,8 +1,23 @@
 use std::{collections::{BTreeMap, BTreeSet}, result};
 
-use chrono::{NaiveDate, Datelike};
+use chrono::{Date, Datelike, NaiveDate};
 
-use crate::models;
+use crate::{models, services};
+
+pub fn run(file_path: &str) {
+    println!("家計簿の集計を行います");
+    let data = services::io::read_data_or_panic(file_path);
+
+    let target_dates: BTreeSet<NaiveDate> = get_target_dates(&data);
+    let mut result_table: BTreeMap<NaiveDate, i32> = BTreeMap::new();
+
+    for date in target_dates {
+        let filtered_data = get_filtered_data(&data, date);
+        let sum = summarize_data(&filtered_data);
+        result_table.insert(date, sum);
+    }
+    print_table(result_table);
+}
 
 fn get_target_dates(data: &Vec<models::Item>) -> BTreeSet<NaiveDate> {
     let target_dates: BTreeSet<_> = data.iter().map(|item| {

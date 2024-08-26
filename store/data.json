@@ -1,6 +1,6 @@
 [
   {
-    "name": "5月給料",
+    "name": "8月給料",
     "category": {
       "Income": "Salary"
     },
@@ -14,5 +14,21 @@
     },
     "price": 2000,
     "date": "2024-08-26"
+  },
+  {
+    "name": "9月給料",
+    "category": {
+      "Income": "Salary"
+    },
+    "price": 30000,
+    "date": "2024-09-26"
+  },
+  {
+    "name": "外食",
+    "category": {
+      "Expense": "Food"
+    },
+    "price": 2000,
+    "date": "2024-09-26"
   }
 ]
